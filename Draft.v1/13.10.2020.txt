@@ -1,0 +1,176 @@
+﻿DR.ONE
+
+
+Things that are missing: statements for input / output
+                            primitive functions for
+
+
+The code needs to be rearranged. 
+
+
+<program> -> <statements>
+
+
+Variable Identifiers:
+
+
+<var_name> -> <initial> | <initial> <extra>
+<initial> -> <str_letter> | _
+<extra> -> <end> | <extra> <end>
+<end> -> <initial> | <digit>
+<str_letter> -> a | b | c | ... | z | A | B | C | ... | Z
+<digit> -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+
+Types:
+
+
+<float> -> <digit> . <digit> <e_symbol> <float_suffix>
+        | <digit> . <digit> <float_suffix>
+        | <digit> . <e_symbol> <float_suffix>
+        | <digit> . <float_suffix>
+
+
+<float_suffix> -> f | F | d | D
+<e_symbol> -> e | E
+
+
+<double> -> <sign> <nosign_int> . <nosign_int> 
+        | <nosign_int> . <nosign_int>
+        | . <nosign_int>
+        | <sign> . <nosign_int>
+        | <sign> <nosign_int>
+
+
+<string> -> " <all_except_"_and_\> " 
+ | "  " 
+<all_except_”_and_\> -> <letter_digit_symbol> 
+| <letter_digit_symbol> <all_except_”_and_\> 
+
+
+<letter_digit_symbol> -> <str_letter> | <digit> | <symbol> 
+<symbol> -> ! | ^ | + | % | & | / | ( | ) | = | * | - | £ | # | $ | ½ | { | [ | ] | } | _ | \| | ; | < | > | : | . 
+<sign> -> + | -
+
+
+
+
+<keyword> -> int | float | string | for | while | char | if | else | else if | return 
+<type> -> int | float | string | double
+<return_type> -> void | int | float | string | double
+
+
+<arithm_expr> -> <term> | <arithm_expr> + <term> | <arithm_expr> - <term>
+<term> -> <power> | <term> * <power> | <term> / <power>
+<power> -> <factor> ^ <power> | <factor>
+<factor> -> ( <arithm_expr> ) | <sign_int> | <nosign_int>
+
+
+<int> -> <sign_int> | <nosign_int>
+<sign_int> -> <sign> <nosign_int> | <nosign_int>
+<nosign_int> -> <digit> <nosign_int> | <digit>
+
+
+Expressions:
+
+
+<expression_stmt> -> <statement_expr> ;
+<statement_expr> -> <assignment> | <arithm_expr> | <post_incr> | <pre_incr> 
+| <post_decr> | <pre_decr> | <relational_expression> | <for_stmt>
+<statements> -> <expression_stmt> | <expression_stmt> <statements>
+
+
+<assignment> -> <LHS> <assignment_operators> <assignment_expr>
+<LHS> -> <var_name> | <type> <var_name>
+<assignment_operators> -> = | *= | += | /= | -=
+<assignment_expr> -> <var_name> | <arithm_expr> | <string> | <float> | <double> 
+| <int> | <relational_expression>
+
+
+Loops: 
+
+
+<for_stmt> -> for (<for_initial> ; <relational_expression>; <for_update> ) <block_statement>
+| for ( ; <relational_expression>; <for_update> ) <block_statement>
+| for ( <for_initial>; ; <for_update> ) <block_statement>
+| for ( <for_initial>; <relational_expression>;  ; ) <block_statement>
+| for ( ; ; ) <block_statement>
+| for ( ; ; <for_update> ) <block_statement>
+| for ( ; <relational_expression> ;) <block_statement>
+| for ( <for_initial> ; ; ) <block_statement>
+
+
+
+
+                   
+<block_statement> -> { <statements> }
+                                   |  { }
+
+
+<for_initial> -> <statements>
+
+
+<relational_expression> -> <less_than> | <greater_than> | <less_than_or_eq>
+                        | <greater_than_or_eq> | <equal>
+
+
+<less_than> -> <var_name> < <var_name> | <var_name> < <int>
+                | <var_name> < <float> | <var_name> < <double>
+                | <int> < <var_name> | <float> < <var_name> | <double> < <var_name>
+| <int> < <int> | <int> < <float> | <int> < <double> 
+                | <double> < <int> | <double> < <double> | <double> < <float>
+                | <float> < <int> | <float> < <double> | <float> < <float>
+
+
+<greater_than> -> <var_name> > <var_name> | <var_name> > <int>
+                | <var_name> > <float> | <var_name> > <double>
+                | <int> > <var_name> | <float> > <var_name> | <double> > <var_name>
+| <int> > <int> | <int> > <float> | <int> > <double> 
+                | <double> > <int> | <double> > <double> | <double> > <float>
+                | <float> > <int> | <float> > <double> | <float> > <float>
+
+
+ <less_than_or_eq> -> <var_name> <= <var_name> | <var_name> <= <int>
+                | <var_name> <= <float> | <var_name> <= <double>
+                | <int> <= <var_name> | <float> <= <var_name> | <double> <= <var_name>
+| <int> <= <int> | <int> <= <float> | <int> <= <double> 
+                | <double> <= <int> | <double> <= <double> | <double> <= <float>
+                | <float> <= <int> | <float> <= <double> | <float> <= <float>
+
+
+<greater_than> -> <var_name> >= <var_name> | <var_name> >= <int>
+                | <var_name> >= <float> | <var_name> >= <double>
+                | <int> >= <var_name> | <float> >= <var_name> | <double> >= <var_name>
+| <int> >= <int> | <int> >= <float> | <int> >= <double> 
+                | <double> >= <int> | <double> >= <double> | <double> >= <float>
+                | <float> >= <int> | <float> >= <double> | <float> >= <float>
+
+
+<equal> ->        <var_name> == <var_name> | <var_name> == <int>
+                | <var_name> == <float> | <var_name> == <double>
+                | <int> == <var_name> | <float> == <var_name> | <double> == <var_name>
+| <int> == <int> | <int> == <float> | <int> == <double> 
+                | <double> == <int> | <double> == <double> | <double> == <float>
+                | <float> == <int> | <float> == <double> | <float> == <float>
+
+
+<while_stmt> -> while ( <relational_expression> ) <block_statement>
+
+
+<boolean> -> <true> | <false>
+<true> -> true
+<false> -> false
+
+
+<fuction_decl> -> drfunction <return_type> <var_name> ( <input_declerations> ) <block_statement>
+        | drfunction <return_type> <var_name> ( )
+
+
+<input_declerations> -> <type> <var_name> | <type> <var_name> , <input_declerations>
+
+
+<comment_block> -> *CM* <anything_in_lng> *CM*
+
+
+<anything_in_lng> -> <any_symbol> | <letter_digit_symbol> <anything_in_lng> 
+<any_symbol> -> <symbol> | “ | \
