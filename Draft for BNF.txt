@@ -1,0 +1,69 @@
+﻿Hello mustik
+Hello cemrük
+Allaaah hepsinde ? Var :((( okey okey sıkıntı yok evet ya öyle :/ HAGHSHAHAHAHAHAHAHH DELİ SENİ
+Evet hepsini düzeltcem. Foru düzelttim diğerlerini de düzeltirim cok basit zaten
+sadece az bişi amelelik WHICH I AM PRO AT
+
+
+
+
+DR.ONE
+
+
+Variable Identifiers
+
+
+<var_name> -> <initial> | <initial> <extra>
+<initial> -> <str_letter> | _
+<extra> -> <end> | <extra> <end>
+<end> -> <initial> | <digit>
+<str_letter> -> a | b | c | ... | z | A | B | C | ... | Z
+<digit> -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+
+Types:
+
+
+<float> -> <digit> . <digit>? (e | E)? <float_suffix>
+<float_suffix> -> f | F | d | D
+
+
+<string> -> " <all_except_"_and_\> " 
+<string> -> "  " 
+<keyword> -> int | float | string | for | while | char | if | else | else if | return 
+<type> -> int | float | string
+
+
+<arithm_expr> -> <term> | <arithm_expr> + <term> | <arithm_expr> - <term>
+<term> -> <power> | <term> * <power> | <term> / <power>
+<power> -> <factor> ^ <power> | <factor>
+<factor> -> ( <arithm_expr> ) | <sign_int>
+<sign_int> -> <sign> <nosign_int> | <nosign_int>
+<nosign_int> -> <digit> <nosign_int> | <digit>
+
+
+Expressions:
+
+
+<expression_stmt> -> <statement_expr> ;
+<statement_expr> -> <assignment> | <arithm_expr> | <post_incr> | <pre_incr> | <post_decr> | <pre_decr>
+<assignment> -> <LHS> <assignment_opr> <assignment_expr>
+
+
+<LHS> -> <var_name> | <type> <var_name>
+<assignment_opr> -> = | *= | += | /= | -=
+<assignment_expr> -> <var_name> | <arithm_expr> | <string> | <float> | <sign_int>
+
+
+
+
+<for_stmt> -> for (<for_initial> ; <relational_expressions>; <for_update> ) <block_statement>
+                    | for ( ; <expression>; <for_update> ) <block_statement>
+        | for ( <for_initial>; ; <for_update> ) <block_statement>
+                  | for ( <for_initial>; <expression>;  ; ) <block_statement>
+                    | for ( ; ; ) <block_statement>
+<block_statement> -> { <block_statements> } 
+                                   |  { }
+<block_statements> -> <expression_stmt> | <expression_stmt> <block_statements>
+<for_initial> -> <expression_stmt> | <for_initial> <expression_stmt>
+<relational_expression> ->
