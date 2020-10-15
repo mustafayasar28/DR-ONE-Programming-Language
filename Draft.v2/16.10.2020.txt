@@ -205,16 +205,3 @@ Primitive functions: (name of func, number of args (parameters) & args, return v
 
 
 <read_altitude> ::= altitude()
-
-
-Hi Cemre,
-
-
-Yes, I meant that your PL will be simpler if the user does not have to declare types for variables. But, again, it is your decision.
-If you will overload operators, then the types of the values become important.
-You understood it, correctly.
-The PL that you will design is for a specific purpose, drone programming. It is not a general PL.
-The requirements is that your PL should be readable, writable and reliable.
-
-
-Best,
