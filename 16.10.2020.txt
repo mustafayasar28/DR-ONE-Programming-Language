@@ -1,0 +1,220 @@
+﻿DR.ONE (DoctoRONE)
+
+
+* variable identifiers 
+* assignment operator
+* precedence, associativity of the operators
+* expressions (arithmetic, relational, boolean, their combination)
+* loops
+* conditional statements
+* statements for input / output
+* function definitions and function calls.
+* comments
+* primitive functions for
+   * reading the inclination of the drone
+   * reading the altitude
+   * reading the temperature
+   * reading the acceleration
+   * turning on/off video camera 
+   * taking pictures with video camera
+   * reading current timestamp from timer
+   * connecting to the base computer through wi-fi
+
+
+<program> ::= start <statements> stop
+<statements> ::= <statement>; | <statements> <statement>;
+<statement> ::= <assignment_stmt> | <post_incr> | <post_decr>
+ | <func_no_return> | <declaration>
+
+
+
+
+<declaration> ::=  var <var_name> | var <var_name> = <assignment_expr>
+<assignment_stmt> ::= <var_name> = <assignment_expr>
+<assignment_expr> ::= <var_name> | <arithm_expr> | <constant>
+ | <read_incl> | <input_stmt>
+
+
+<constant> ::= <int> | <string> | <boolean>
+
+
+<boolean> -> <true> | <false>
+<true> -> true | 1
+<false> -> false | 0
+
+
+<string> -> "<valid_str>" 
+ | "" 
+<valid_str> -> <letter_digit_symbol> 
+| <letter_digit_symbol> <valid_str> 
+<letter_digit_symbol> -> <str_letter> | <digit> | <symbol> 
+<symbol> -> ! | ^ | + | % | & | / | ( | ) | = | * | - | £ | # | $ | ½ | { | [ | ] | } | _ | \| | ; | < | > | : | . 
+
+
+<sign> -> + | -
+<int> -> <sign_int> | <nosign_int>
+<sign_int> -> <sign> <nosign_int> | <nosign_int>
+<nosign_int> -> <digit> <nosign_int> | <digit>
+
+
+<arithm_expr> -> <term> | <arithm_expr> + <term> | <arithm_expr> - <term>
+<term> -> <power> | <term> * <power> | <term> / <power>
+<power> -> <factor> ^ <power> | <factor>
+<factor> -> ( <arithm_expr> ) | <int> | <var_name>
+
+
+
+
+Variable Identifiers:
+<var_name> ::= <initial> | <initial><rest>
+<initial> ::= <str_letter> | _
+<rest> ::=  <str_letter>| <digit>  | <str_letter><rest> | <digit><rest>
+<str_letter> ::= a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y  | z | A | B | C | D | E| F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
+<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+
+
+
+<expression> ::= <arithm_expr> | <relational_expr> | <boolean_expr> 
+
+
+NOTLI EXPR YOK ŞU AN
+<boolean_expr> ::= <var_name> <boolean_operator> <var_name> 
+| <var_name>
+| ( <boolean_expr> ) <boolean_operator> <var_name>
+
+
+<not_boolean_expr> ::= NOT <boolean_expr>
+
+
+<boolean_operator> ::= AND | OR 
+
+
+
+
+
+
+if (!cemre)
+(cmere && musti)NOT
+
+
+(cemre OR musti) AND SELAM
+!(cemre ) && !musti && !
+!cemre && SELAM
+
+
+<relational_expr>         <var_name> <relational_opr> <var_name> 
+| <var_name> <relational_opr> <int> 
+| <int> <relational_opr> <var_name>
+
+
+<relational_opr> ::=  < | <= | > | >= | == | !=
+
+
+
+
+
+
+
+
+Loops: 
+
+
+<for_stmt> -> for (<for_initial> ; <relational_expression>; <for_update> ) <block_statement>
+| for ( ; <relational_expression>; <for_update> ) <block_statement>
+
+
+<block_statement> -> { <statements> }
+                                   |  { }
+
+
+<for_initial> ::= <for_initial_helper> | <for_initial_helper>, <for_initial>
+
+
+<for_initial_helper> ::= var <var_name> = <var_name>
+| var <var_name> = <arithm_expr> 
+| var <var_name> = <constant>
+| <var_name> = <var_name>
+| <var_name> = <arithm_expr>
+| <var_name> = <constant>
+
+
+<while_stmt> -> while ( <relational_expression> ) <block_statement>
+
+
+Conditional:
+
+
+<conditional_stmt> ::= if ( <if_condition> ) <block_statement>
+                | if ( <if_condition> ) <block_statement> else <block_statement>
+ 
+<if_condition> ::= <relational_expr> | <boolean_expr>
+
+
+Input & Output:
+
+
+<input> ::= drin()
+<output> ::= drout( <var_name> ) | drout( <constant> )
+
+
+Function Definitions and Calls:
+
+
+<function_def> ::= drfunction <func_name> ( <parameters> ) <block_statement>
+        | drfunction <func_name> ( ) <block_statement>
+
+
+<function_call> ::= <func_name>() 
+                | <func_name>( <defined_parameters> )
+
+
+<parameters> ::= var <var_name>
+                | <int>
+                | <int> , <parameters>
+                | var <var_name> , <parameters>
+
+
+<defined_parameters> ::= <var_name> | <int> | <int>, <defined_parameters> 
+                | <var_name> , <defined_parameters>
+
+
+<func_name> -> <str_letter> | <str_letter> <rest>
+
+
+
+
+
+
+Comment:
+
+
+<comment_block> -> *CM* <anything_in_lng> *CM*
+<anything_in_lng> -> <any_symbol> | <letter_digit_symbol> <anything_in_lng> 
+<any_symbol> -> <symbol> | “ | \ 
+
+
+Primitive functions: (name of func, number of args (parameters) & args, return value if there is a type, type of return value) we dont care about how it will be implemented in this project
+  
+
+
+
+
+
+<read_incl> ::= incl() 
+
+
+<read_altitude> ::= altitude()
+
+
+Hi Cemre,
+
+
+Yes, I meant that your PL will be simpler if the user does not have to declare types for variables. But, again, it is your decision.
+If you will overload operators, then the types of the values become important.
+You understood it, correctly.
+The PL that you will design is for a specific purpose, drone programming. It is not a general PL.
+The requirements is that your PL should be readable, writable and reliable.
+
+
+Best,
