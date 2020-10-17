@@ -19,16 +19,16 @@ connect (connect)
 setSpeed    (setSpeed)
 setAltitude (setAltitude)
 setIncline  (setIncline)
+boolean_operator [(AND)(OR)]
+boolean [(true)(false)]
 arithm_operator [\+\-\^\*\/]
 sign    [+-]
 str_letter [a-zA-Z]
 digit   [0-9]
 relational_opr  [(<)(<=)(>)(>=)(==)(!=)]
 valid_str   [{str_letter} {digit}]+
-boolean_operator [(AND)(OR)]
-boolean [(true)(false)]
 int {sign}?{digit}+
-string ("{valid_str}*")
+string (\"{valid_str}*\")
 identifier (\_)?{valid_str}
 space   [ \t]
 %%

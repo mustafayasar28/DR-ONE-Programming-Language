@@ -1,0 +1,84 @@
+%option main
+assignment_opr =
+space   [ \t]
+newLine [\n]
+equality_check (==)
+smaller	 \<
+smaller_or_equal (<=)
+bigger \>
+bigger_or_equal (>=)
+not_equal (!=)
+comment (\*CM\*)[^\n]*(\*CM\*)
+sign    [+-]
+arithm_operator [\+\-\^\*\/]
+if  (if)
+else (else)
+var (var)
+for (for)
+while (while)
+drin (drin)
+drout (drout)
+drfunction (drfunction)
+incline (incline)
+altitude (altitude)
+temperature (temperature)
+acceleration (acceleration)
+speed   (speed)
+cameraOn    (cameraOn)
+cameraOff   (cameraOff)
+takePicture (takePicture)
+readTime    (readTime)
+connect (connect)
+setSpeed    (setSpeed)
+setAltitude (setAltitude)
+setIncline  (setIncline)
+boolean_operator (AND|OR)
+boolean (true|false)
+str_letter [a-zA-Z]
+digit   [0-9]
+int {sign}?{digit}+
+string (\"[^\"\n]*\")
+identifier [\_]?({str_letter}|{digit})+
+%%
+{equality_check} printf("EQUAL_CHECK "); 
+{smaller} printf("SMALLER ") ;
+{smaller_or_equal}  printf("SMALLER_OR_EQUAL "); 
+{bigger} printf("GREATER ");
+{bigger_or_equal} printf("GREATER_OR_EQUAL "); 
+{not_equal} printf("NOT_EQUAL ");
+{assignment_opr} printf("ASSIGNMENT_OP ");
+{space}   ;
+{newLine} ;
+\(   printf("LP ");
+\)   printf("RP ");
+\{  printf("RBRACE ");
+\}  printf("LBRACE ");
+{sign}  printf("SIGN ");
+{arithm_operator} printf("ARITHMETIC_OP ");
+{comment} printf("COMMENT_LINE ");
+{if}    printf("IF ");
+{else}  printf("ELSE ");
+{var}   printf("DECL ");
+{for}   printf("FOR ");
+{while} printf("WHILE ");
+{drin}  printf("DRIN ");
+{drout} printf("DROUT ");
+{drfunction} printf("FUNCTION_DECL ");
+{incline}   printf("INCLINE ");
+{altitude}  printf("ALTITUDE ");
+{temperature}   printf("TEMPERATURE ");
+{acceleration}  printf("ACCELERATION ");
+{speed}     printf("SPEED ");
+{cameraOn}  printf("CAMERA_ON ");
+{cameraOff} printf("CAMERA_OFF ");
+{takePicture}   printf("TAKE_PICTURE ");
+{readTime}  printf("READ_TIME ");
+{connect}   printf("CONNECT ");
+{setSpeed}  printf("SET_SPEED ");
+{setAltitude} printf("SET_ALTITUDE ");
+{setIncline}    printf("SET_INCLINE ");
+{boolean}   printf("BOOLEAN ");
+{boolean_operator}  printf("BOOLEAN_OP ");
+{int}   printf("INTEGER ");
+{string}   printf("STRING ");
+{identifier} printf("IDENTIFIER ");
