@@ -1,0 +1,64 @@
+start
+
+var droneIncline;
+var droneSpeed;
+var droneAltitude;
+
+droneIncline = incline();
+droneSpeed = speed();
+droneAltitude = altitude();
+
+
+while ( droneSpeed < 10 ) {
+	droneSpeed++;
+}
+
+while ( droneAltitude < 50 ) {
+	droneAltitude = droneAltitude + 2;
+}
+
+for ( var x = 0; x < 10; x++ ) {
+	droneIncline = droneIncline + 3;
+}
+
+drfunction sum( var a, var b ) {
+	return a + b;
+}
+
+setSpeed( sum(2 + 5) );
+
+if ( speed() == 7 ) {
+	cameraOn();
+	takePicture();
+	takePicture();
+
+	goto(21, 12, 94, 14);
+} else {
+	setSpeed(7);
+}
+
+*CM* DANCE *CM* 
+rotateCW(360);
+rotateCCW(360);
+
+var seconds = readTime();
+
+*CM* If drone is used 5 minutes or more, stop the drone. *CM*
+if ( seconds >= 300 ) {
+	setAltitude(0);
+} else {
+	lockPosition();
+	takePicture();
+	takePicture();
+	unlockPosition();
+}
+
+
+stop
+
+
+
+
+
+
+

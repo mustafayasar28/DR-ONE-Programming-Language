@@ -1,0 +1,55 @@
+start
+
+*CM* This is an input file *CM*
+
+var x = 5;
+var y = 10;
+var z = "15";
+var bool = true;
+
+if ( x == 5 ) {
+   for ( var i = 0; i < 15; i++ ) {
+       x = x + 1;
+       y = y + 2;
+   }
+}
+
+while ( y >= 10 ) {
+   y = y * 2;
+   y = y / 4;
+   var a = y ^ 2;
+}
+
+if ( a <= 10 AND x > 10 OR (NOT bool) ) {
+   x = incline();
+} else {
+   x = 0;
+}
+
+var scanner = drin();
+drout( scanner );
+
+
+drfunction tempFunction( var temp, var droneAltitude ) {
+    var inc = incline();
+    droneAltitude = altitude();
+    temp = temperature();
+    var accl = acceleration();
+    var droneSpeed = speed();
+    var camera;
+
+    cameraOn();
+    cameraOff();
+
+    takePicture();
+    
+    var time = readTime();
+    
+    connect("127.0.0.1", "password");
+
+    setSpeed(20);
+    setAltitude(12);
+    setIncline(3);
+} 
+
+stop

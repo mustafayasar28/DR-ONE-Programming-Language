@@ -1,0 +1,39 @@
+start
+
+*CM* Drone to take the picture of a flower at the top of a mountain *CM*
+
+*CM* Start the drone *CM*
+
+*CM* Give name to the drone *CM*
+giveName("FlowerDrone");
+
+*CM* Assume the flower at the coordinates of 100, 120, 59.
+
+*CM* Go to that coordinates with speed of 6.
+goto(100, 120, 59, 6);
+
+*CM* Assume the drone has arrived at the point. *CM*
+cameraOn();
+
+takePicture();
+
+droneLeft(15);
+takePicture();
+
+droneForward(20);
+takePicture();
+
+droneUp(10);
+takePicture();
+
+*CM* Many photographs have been taken *CM*
+*CM* Return to the user of the drone *CM*
+
+goto(0, 0, 0, 7);
+droneDown(150);
+
+stop
+
+
+
+
