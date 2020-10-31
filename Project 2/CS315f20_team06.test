@@ -1,0 +1,110 @@
+start
+
+*CM* Connect to the wifi in order to control the drone. *CM*
+
+connect("wifi-name", "admin123");
+giveName("Drone of Mustafa and Cemre");
+
+*CM* Ascend *CM*
+while( altitude() <= 100 ) {
+	droneUp(5);
+};  
+
+*CM* Adjust the incline to 45 degrees. *CM*
+
+setIncline(45);
+
+var arrivalPoint = "House of my Friend";
+var distance = 1000;
+
+var finish;
+for ( var i = 0; i < distance; i++ ) {
+	if ( i == distance - 1 ) {
+		finish = true;
+	};	
+};
+
+drfunction tempFunction( var number1, var number2, var string1, var string2) {
+	if ( (string1 == string2) AND (number1 == number2) ) {
+		drout("Numbers are equal, strings are identical.");
+	};
+	
+	empty = "";
+	if ( string1 == empty ) {
+		drout("string1 is not empty");
+		drout("The total number is: ");
+		drout(number1 + number2);
+	};
+};
+
+*CM* Open the camera of the drone *CM*
+cameraOn();
+
+if ( readTime() == 100 ){
+	drout( "100 seconds passed." );
+};
+
+drout( readTime() );
+var time = readTime();
+var tmpr = temperature();
+
+if ( ( time + 10 > 100 ) AND ( tmpr - 10 == 25 ) ) {
+	setAltitude(30);
+	setIncline(40);
+
+	rotateCW(360);
+	rotateCCW(180);
+};
+
+var done = false;
+
+*CM* Go to the position *CM*
+gotoPos(100, 200, 50, 25);
+
+done = true;
+
+if ( NOT done ) {
+	drout("Drone could not be arrive at the position");
+} else {
+	lockPosition();
+	drout("Drone locked to the position");
+
+	for ( var i = 0; i < 10; i++ ) {
+		takePicture();
+	};
+};
+
+*CM* Play with the drone *CM*
+
+unlockPosition();
+droneUp(50);
+droneLeft(40);
+droneDown(25);
+droneForward(60);
+droneBackward(60);
+
+rotateCW(180);
+rotateCCW(360);
+
+var number = 15 + 30 * 2 - 20 + (13 + 5) / 4;
+number++;
+number--;
+
+var bool1 = true;
+var bool2 = false;
+var bool3 = true;
+
+var result = NOT bool1 AND ( bool2 OR bool3 ) AND NOT (3 == 5) OR ( 3 + 5 == 8 );
+
+tempFunction(10, 20, "bilkent", "bilkent");
+
+drfunction sayGoodbye(){
+	return "Goodbye!";
+};
+
+fdrout("Drone program completed", "droneOutput.txt");
+drout( sayGoodbye() );
+
+gotoPos(0,0,0, 10);
+
+stop
